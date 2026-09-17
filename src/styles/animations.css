@@ -1,0 +1,151 @@
+/* -------------------------------------------------
+   Animations & Micro‑Interactions
+   ------------------------------------------------- */
+
+/* -------------------------------------------------
+   Duration & Easing Tokens
+   ------------------------------------------------- */
+:root {
+  --anim-duration-fast: 150ms;
+  --anim-duration-medium: 300ms;
+  --anim-duration-slow: 500ms;
+  --anim-easing-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --anim-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------------------------------------------
+   Keyframes
+   ------------------------------------------------- */
+
+/* Fade‑in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Slide‑up (from 20px below) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ripple (expanding circle) */
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Hover scale (slight grow) */
+@keyframes hoverScale {
+  from { transform: scale(1); }
+  to   { transform: scale(1.04); }
+}
+
+/* Hover shadow (elevate) */
+@keyframes hoverShadow {
+  from { box-shadow: var(--shadow-sm); }
+  to   { box-shadow: var(--shadow-md); }
+}
+
+/* -------------------------------------------------
+   Utility Classes
+   ------------------------------------------------- */
+
+/* Fade‑in */
+.anim-fade-in {
+  animation-name: fadeIn;
+  animation-duration: var(--anim-duration-medium);
+  animation-timing-function: var(--anim-easing-ease-out);
+  animation-fill-mode: forwards;
+}
+
+/* Slide‑up */
+.anim-slide-up {
+  animation-name: slideUp;
+  animation-duration: var(--anim-duration-medium);
+  animation-timing-function: var(--anim-easing-ease-out);
+  animation-fill-mode: forwards;
+}
+
+/* Ripple – to be used on a container with position: relative;
+   add a child element with .ripple-element */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-element {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  pointer-events: none;
+}
+.ripple-element.animate {
+  animation-name: ripple;
+  animation-duration: var(--anim-duration-slow);
+  animation-timing-function: var(--anim-easing-ease-out);
+  animation-fill-mode: forwards;
+}
+
+/* Hover interactions – apply to any interactive element */
+.hover-scale {
+  transition: transform var(--anim-duration-fast) var(--anim-easing-ease-in-out);
+}
+.hover-scale:hover {
+  transform: scale(1.04);
+}
+.hover-shadow {
+  transition: box-shadow var(--anim-duration-fast) var(--anim-easing-ease-in-out);
+}
+.hover-shadow:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Combined hover (scale + shadow) */
+.hover-elevate {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-easing-ease-in-out),
+    box-shadow var(--anim-duration-fast) var(--anim-easing-ease-in-out);
+}
+.hover-elevate:hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-md);
+}
+
+/* -------------------------------------------------
+   Example Shadow Tokens (to be defined elsewhere)
+   ------------------------------------------------- */
+:root {
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+}
+
+/* -------------------------------------------------
+   Accessibility – prefers‑reduced‑motion
+   ------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-in,
+  .anim-slide-up,
+  .ripple-element.animate,
+  .hover-scale,
+  .hover-shadow,
+  .hover-elevate {
+    animation: none !important;
+    transition: none !important;
+  }
+}
