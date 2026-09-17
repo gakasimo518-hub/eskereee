@@ -1,0 +1,186 @@
+:root {
+  /* Color palette */
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-primary: #bb86fc;
+  --color-primary-variant: #3700b3;
+  --color-secondary: #03dac6;
+  --color-on-primary: #000000;
+  --color-on-surface: #e0e0e0;
+  --color-on-bg: #ffffff;
+  --color-error: #cf6679;
+  --color-on-error: #000000;
+
+  /* Typography */
+  --font-family-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-mono: "Fira Code", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Responsive font sizes using clamp */
+  --fs-base: clamp(0.95rem, 0.5vw + 0.8rem, 1.125rem);
+  --fs-h1: clamp(2rem, 5vw + 1rem, 3rem);
+  --fs-h2: clamp(1.75rem, 4vw + 0.9rem, 2.5rem);
+  --fs-h3: clamp(1.5rem, 3vw + 0.8rem, 2rem);
+  --fs-h4: clamp(1.25rem, 2.5vw + 0.7rem, 1.75rem);
+  --fs-h5: clamp(1.125rem, 2vw + 0.6rem, 1.5rem);
+  --fs-h6: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+}
+
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-on-bg);
+  font-family: var(--font-family-sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-on-bg);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover,
+a:focus {
+  color: var(--color-primary-variant);
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+[role="button"] {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+button:hover,
+button:focus,
+[role="button"]:hover,
+[role="button"]:focus {
+  background-color: var(--color-primary-variant);
+  transform: translateY(-1px);
+}
+button:active,
+[role="button"]:active {
+  transform: translateY(0);
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #444;
+  border-radius: 0.3rem;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: #222;
+}
+
+/* Code blocks */
+code,
+pre {
+  font-family: var(--font-family-mono);
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 0.3rem;
+}
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Layout helpers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Responsive utilities */
+@media (max-width: 600px) {
+  h1 { font-size: clamp(1.75rem, 6vw + 1rem, 2.5rem); }
+  h2 { font-size: clamp(1.5rem, 5vw + 0.9rem, 2rem); }
+}
+
+/* Scrollbar styling for WebKit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* Dark theme overrides for images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility classes */
+.text-primary { color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.bg-primary { background-color: var(--color-primary) !important; color: var(--color-on-primary) !important; }
+.bg-surface { background-color: var(--color-surface) !important; color: var(--color-on-surface) !important; }

@@ -1,23 +1,25 @@
+/* src/styles/typography.css */
+
+/* -------------------------------------------------
+   Font Families
+------------------------------------------------- */
 :root {
-  /* Font families */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --font-serif: "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  /* Base font size */
-  --font-size-base: 1rem; /* 16px */
-
-  /* Scale steps (fluid) */
-  --font-size-xs: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
-  --font-size-sm: clamp(0.875rem, 0.6vw + 0.55rem, 1rem);
-  --font-size-base: clamp(1rem, 0.7vw + 0.6rem, 1.125rem);
-  --font-size-lg: clamp(1.125rem, 0.8vw + 0.65rem, 1.25rem);
-  --font-size-xl: clamp(1.25rem, 0.9vw + 0.7rem, 1.5rem);
-  --font-size-2xl: clamp(1.5rem, 1vw + 0.75rem, 1.75rem);
-  --font-size-3xl: clamp(1.75rem, 1.2vw + 0.8rem, 2rem);
-  --font-size-4xl: clamp(2rem, 1.4vw + 0.85rem, 2.5rem);
-  --font-size-5xl: clamp(2.5rem, 1.6vw + 0.9rem, 3rem);
-  --font-size-6xl: clamp(3rem, 1.8vw + 1rem, 3.5rem);
+  /* Base type scale (rem) */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px */
+  --text-lg: 1.125rem;  /* 18px */
+  --text-xl: 1.25rem;   /* 20px */
+  --text-2xl: 1.5rem;   /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem;  /* 36px */
+  --text-5xl: 3rem;     /* 48px */
+  --text-6xl: 3.75rem;  /* 60px */
+  --text-7xl: 4.5rem;   /* 72px */
 
   /* Line heights */
   --leading-none: 1;
@@ -27,29 +29,40 @@
   --leading-relaxed: 1.625;
   --leading-loose: 2;
 
-  /* Font weights */
-  --weight-light: 300;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-  --weight-extrabold: 800;
+  /* Letter spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
 }
 
-/* Font family utilities */
+/* -------------------------------------------------
+   Font Family Utilities
+------------------------------------------------- */
 .font-sans { font-family: var(--font-sans); }
 .font-serif { font-family: var(--font-serif); }
 .font-mono { font-family: var(--font-mono); }
 
-/* Font weight utilities */
-.font-light   { font-weight: var(--weight-light); }
-.font-regular { font-weight: var(--weight-regular); }
-.font-medium  { font-weight: var(--weight-medium); }
-.font-semibold{ font-weight: var(--weight-semibold); }
-.font-bold    { font-weight: var(--weight-bold); }
-.font-extrabold{ font-weight: var(--weight-extrabold); }
+/* -------------------------------------------------
+   Text Size Utilities
+------------------------------------------------- */
+.text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+.text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+.text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+.text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+.text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+.text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+.text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+.text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+.text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+.text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+.text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
 
-/* Line height utilities */
+/* -------------------------------------------------
+   Line Height Utilities
+------------------------------------------------- */
 .leading-none   { line-height: var(--leading-none); }
 .leading-tight  { line-height: var(--leading-tight); }
 .leading-snug   { line-height: var(--leading-snug); }
@@ -57,134 +70,161 @@
 .leading-relaxed{ line-height: var(--leading-relaxed); }
 .leading-loose  { line-height: var(--leading-loose); }
 
-/* Font size utilities (fluid) */
-.text-xs   { font-size: var(--font-size-xs); }
-.text-sm   { font-size: var(--font-size-sm); }
-.text-base { font-size: var(--font-size-base); }
-.text-lg   { font-size: var(--font-size-lg); }
-.text-xl   { font-size: var(--font-size-xl); }
-.text-2xl  { font-size: var(--font-size-2xl); }
-.text-3xl  { font-size: var(--font-size-3xl); }
-.text-4xl  { font-size: var(--font-size-4xl); }
-.text-5xl  { font-size: var(--font-size-5xl); }
-.text-6xl  { font-size: var(--font-size-6xl); }
+/* -------------------------------------------------
+   Letter Spacing Utilities
+------------------------------------------------- */
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
+.tracking-tight   { letter-spacing: var(--tracking-tight); }
+.tracking-normal  { letter-spacing: var(--tracking-normal); }
+.tracking-wide    { letter-spacing: var(--tracking-wide); }
+.tracking-wider   { letter-spacing: var(--tracking-wider); }
+.tracking-widest  { letter-spacing: var(--tracking-widest); }
 
-/* Responsive breakpoints */
-@media (min-width: 640px) {
-  .sm\:text-xs   { font-size: var(--font-size-xs); }
-  .sm\:text-sm   { font-size: var(--font-size-sm); }
-  .sm\:text-base { font-size: var(--font-size-base); }
-  .sm\:text-lg   { font-size: var(--font-size-lg); }
-  .sm\:text-xl   { font-size: var(--font-size-xl); }
-  .sm\:text-2xl  { font-size: var(--font-size-2xl); }
-  .sm\:text-3xl  { font-size: var(--font-size-3xl); }
-  .sm\:text-4xl  { font-size: var(--font-size-4xl); }
-  .sm\:text-5xl  { font-size: var(--font-size-5xl); }
-  .sm\:text-6xl  { font-size: var(--font-size-6xl); }
-}
-@media (min-width: 768px) {
-  .md\:text-xs   { font-size: var(--font-size-xs); }
-  .md\:text-sm   { font-size: var(--font-size-sm); }
-  .md\:text-base { font-size: var(--font-size-base); }
-  .md\:text-lg   { font-size: var(--font-size-lg); }
-  .md\:text-xl   { font-size: var(--font-size-xl); }
-  .md\:text-2xl  { font-size: var(--font-size-2xl); }
-  .md\:text-3xl  { font-size: var(--font-size-3xl); }
-  .md\:text-4xl  { font-size: var(--font-size-4xl); }
-  .md\:text-5xl  { font-size: var(--font-size-5xl); }
-  .md\:text-6xl  { font-size: var(--font-size-6xl); }
-}
-@media (min-width: 1024px) {
-  .lg\:text-xs   { font-size: var(--font-size-xs); }
-  .lg\:text-sm   { font-size: var(--font-size-sm); }
-  .lg\:text-base { font-size: var(--font-size-base); }
-  .lg\:text-lg   { font-size: var(--font-size-lg); }
-  .lg\:text-xl   { font-size: var(--font-size-xl); }
-  .lg\:text-2xl  { font-size: var(--font-size-2xl); }
-  .lg\:text-3xl  { font-size: var(--font-size-3xl); }
-  .lg\:text-4xl  { font-size: var(--font-size-4xl); }
-  .lg\:text-5xl  { font-size: var(--font-size-5xl); }
-  .lg\:text-6xl  { font-size: var(--font-size-6xl); }
-}
-@media (min-width: 1280px) {
-  .xl\:text-xs   { font-size: var(--font-size-xs); }
-  .xl\:text-sm   { font-size: var(--font-size-sm); }
-  .xl\:text-base { font-size: var(--font-size-base); }
-  .xl\:text-lg   { font-size: var(--font-size-lg); }
-  .xl\:text-xl   { font-size: var(--font-size-xl); }
-  .xl\:text-2xl  { font-size: var(--font-size-2xl); }
-  .xl\:text-3xl  { font-size: var(--font-size-3xl); }
-  .xl\:text-4xl  { font-size: var(--font-size-4xl); }
-  .xl\:text-5xl  { font-size: var(--font-size-5xl); }
-  .xl\:text-6xl  { font-size: var(--font-size-6xl); }
-}
+/* -------------------------------------------------
+   Text Transform Utilities
+------------------------------------------------- */
+.uppercase   { text-transform: uppercase; }
+.lowercase   { text-transform: lowercase; }
+.capitalize  { text-transform: capitalize; }
+.normal-case { text-transform: none; }
 
-/* Utility for resetting margins/paddings on headings */
-.heading-reset {
-  margin: 0;
-  padding: 0;
-}
-
-/* Example heading classes using the utilities above */
-.h1 {
-  composes: heading-reset font-sans text-6xl font-bold leading-tight;
-}
-.h2 {
-  composes: heading-reset font-sans text-5xl font-semibold leading-snug;
-}
-.h3 {
-  composes: heading-reset font-sans text-4xl font-medium leading-normal;
-}
-.h4 {
-  composes: heading-reset font-sans text-3xl font-medium leading-normal;
-}
-.h5 {
-  composes: heading-reset font-sans text-2xl font-regular leading-relaxed;
-}
-.h6 {
-  composes: heading-reset font-sans text-xl font-regular leading-relaxed;
-}
-
-/* Paragraph utility */
-.p {
-  margin: 0 0 1rem 0;
-  font-size: var(--font-size-base);
-  line-height: var(--leading-normal);
-}
-
-/* Small text utility */
-.small {
-  font-size: var(--font-size-sm);
-  line-height: var(--leading-tight);
-}
-
-/* Uppercase utility */
-.uppercase { text-transform: uppercase; }
-.lowercase { text-transform: lowercase; }
-.capitalize { text-transform: capitalize; }
-
-/* Text alignment utilities */
+/* -------------------------------------------------
+   Text Alignment Utilities
+------------------------------------------------- */
 .text-left   { text-align: left; }
 .text-center { text-align: center; }
 .text-right  { text-align: right; }
 .text-justify{ text-align: justify; }
 
-/* Text overflow utilities */
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* -------------------------------------------------
+   Responsive Typography
+   Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
+------------------------------------------------- */
+@media (min-width: 640px) {
+  .sm\:text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+  .sm\:text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+  .sm\:text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .sm\:text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+  .sm\:text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+  .sm\:text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+  .sm\:text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+  .sm\:text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+  .sm\:text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+  .sm\:text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+  .sm\:text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
 }
 
-/* Responsive typography helper – fluid scaling for body text */
-.body-text {
-  font-size: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
-  line-height: var(--leading-normal);
+@media (min-width: 768px) {
+  .md\:text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+  .md\:text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+  .md\:text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .md\:text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+  .md\:text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+  .md\:text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+  .md\:text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+  .md\:text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+  .md\:text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+  .md\:text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+  .md\:text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+  .lg\:text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+  .lg\:text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .lg\:text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+  .lg\:text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+  .lg\:text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+  .lg\:text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+  .lg\:text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+  .lg\:text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+  .lg\:text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+  .lg\:text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+  .xl\:text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+  .xl\:text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .xl\:text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+  .xl\:text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+  .xl\:text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+  .xl\:text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+  .xl\:text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+  .xl\:text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+  .xl\:text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+  .xl\:text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:text-xs   { font-size: var(--text-xs);   line-height: var(--leading-tight); }
+  .\32xl\:text-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }
+  .\32xl\:text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
+  .\32xl\:text-lg   { font-size: var(--text-lg);   line-height: var(--leading-normal); }
+  .\32xl\:text-xl   { font-size: var(--text-xl);   line-height: var(--leading-relaxed); }
+  .\32xl\:text-2xl  { font-size: var(--text-2xl);  line-height: var(--leading-relaxed); }
+  .\32xl\:text-3xl  { font-size: var(--text-3xl);  line-height: var(--leading-relaxed); }
+  .\32xl\:text-4xl  { font-size: var(--text-4xl);  line-height: var(--leading-loose); }
+  .\32xl\:text-5xl  { font-size: var(--text-5xl);  line-height: var(--leading-loose); }
+  .\32xl\:text-6xl  { font-size: var(--text-6xl);  line-height: var(--leading-loose); }
+  .\32xl\:text-7xl  { font-size: var(--text-7xl);  line-height: var(--leading-loose); }
+}
+
+/* -------------------------------------------------
+   Fluid Typography (Clamp) – optional fallback for headings
+------------------------------------------------- */
+.h1 { font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); line-height: var(--leading-loose); }
+.h2 { font-size: clamp(2rem, 4vw + 1rem, 3.75rem); line-height: var(--leading-loose); }
+.h3 { font-size: clamp(1.75rem, 3.5vw + 0.5rem, 3rem); line-height: var(--leading-relaxed); }
+.h4 { font-size: clamp(1.5rem, 3vw + 0.5rem, 2.5rem); line-height: var(--leading-relaxed); }
+.h5 { font-size: clamp(1.25rem, 2.5vw + 0.25rem, 2rem); line-height: var(--leading-normal); }
+.h6 { font-size: clamp(1rem, 2vw + 0.25rem, 1.5rem); line-height: var(--leading-normal); }
+
+/* -------------------------------------------------
+   Global Reset for Typography
+------------------------------------------------- */
+body {
+  margin: 0;
   font-family: var(--font-sans);
-}
-
-/* Ensure smooth font rendering */
-html {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #111;
+  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* Small text */
+small, .text-smaller {
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+}
+
+/* -------------------------------------------------
+   Accessibility Helpers
+------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
